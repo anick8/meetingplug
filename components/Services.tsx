@@ -1,25 +1,23 @@
 import { SERVICES } from "@/lib/content";
-import { Reveal, Stagger, StaggerItem } from "./motion";
+import Section from "./Section";
 
 export default function Services() {
   return (
-    <section className="services" id="offer">
-      <div className="wrap">
-        <Reveal className="section-head">
-          <span className="kicker">What We Offer</span>
-          <h2>Comprehensive email marketing solutions</h2>
-          <p>Designed to maximize outreach effectiveness for established B2B businesses.</p>
-        </Reveal>
-        <Stagger className="service-grid">
-          {SERVICES.map((s, i) => (
-            <StaggerItem hover className="service-card" key={s.title}>
-              <div className="icon">{String(i + 1).padStart(2, "0")}</div>
+    <Section id="offer" label="What We Offer">
+      <div className="split">
+        <div className="split-head">
+          <h2 className="h2">Comprehensive email marketing solutions</h2>
+          <p className="lede">Designed to maximize outreach effectiveness for established B2B businesses.</p>
+        </div>
+        <ul className="rows split-body">
+          {SERVICES.map((s) => (
+            <li className="row row-svc" key={s.title}>
               <h3>{s.title}</h3>
               <p>{s.body}</p>
-            </StaggerItem>
+            </li>
           ))}
-        </Stagger>
+        </ul>
       </div>
-    </section>
+    </Section>
   );
 }

@@ -1,18 +1,23 @@
 import { PIPELINE_CHECKS } from "@/lib/content";
-import Check from "./Check";
-import { Reveal, Stagger } from "./motion";
+import { CheckIcon } from "./icons";
+import Section from "./Section";
 
 export default function ChecksSection() {
   return (
-    <section className="checks-section">
-      <div className="wrap checks-inner">
-        <Reveal as="h2">A done-for-you system that fills your pipeline</Reveal>
-        <Stagger className="check-grid">
+    <Section>
+      <div className="split">
+        <h2 className="h2 split-head">A done-for-you system that fills your pipeline</h2>
+        <ul className="rows split-body">
           {PIPELINE_CHECKS.map((t) => (
-            <Check key={t}>{t}</Check>
+            <li className="row row-check" key={t}>
+              <span className="tick">
+                <CheckIcon />
+              </span>
+              <span>{t}</span>
+            </li>
           ))}
-        </Stagger>
+        </ul>
       </div>
-    </section>
+    </Section>
   );
 }

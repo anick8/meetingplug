@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-29T11:06:23.328396Z",
+  "title": "Design System: MeetingPlug",
+  "extensions": {
+    "colorMeta": {
+      "newsprint": {
+        "role": "neutral",
+        "displayName": "Newsprint",
+        "canonical": "#ededea",
+        "tonalRamp": [
+          "#3d3d3a",
+          "#5b5b57",
+          "#7a7a76",
+          "#9a9a96",
+          "#bababa",
+          "#d0d0cd",
+          "#ededea",
+          "#f8f8f6"
+        ]
+      },
+      "sheet-white": {
+        "role": "neutral",
+        "displayName": "Sheet White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#404040",
+          "#666666",
+          "#8c8c8c",
+          "#adadad",
+          "#cccccc",
+          "#e0e0e0",
+          "#f2f2f2",
+          "#ffffff"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#16130f",
+        "tonalRamp": [
+          "#16130f",
+          "#2e2a25",
+          "#47423c",
+          "#615b54",
+          "#7c766e",
+          "#9b958d",
+          "#bfbab3",
+          "#e3e0da"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#55554f",
+        "tonalRamp": [
+          "#1f1f1c",
+          "#33332f",
+          "#474743",
+          "#55554f",
+          "#75756f",
+          "#96968f",
+          "#b9b9b3",
+          "#dcdcd8"
+        ]
+      },
+      "signal-coral": {
+        "role": "primary",
+        "displayName": "Signal Coral",
+        "canonical": "#f1502f",
+        "tonalRamp": [
+          "#5a1408",
+          "#822010",
+          "#a92b16",
+          "#ce3a1e",
+          "#f1502f",
+          "#f57a5e",
+          "#f9a794",
+          "#fcd2c7"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero and closing headlines."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs and list text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Side labels, footer heads, hero caption."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Hairline draws, count-ups, FAQ height."
+      },
+      {
+        "name": "state-swap",
+        "value": "0.15s ease",
+        "purpose": "Button and icon color swaps."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack-hero",
+        "value": "980px"
+      },
+      {
+        "name": "collapse-grid",
+        "value": "820px"
+      },
+      {
+        "name": "show-nav",
+        "value": "840px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Coral Button",
+      "kind": "button",
+      "refersTo": "button-coral",
+      "description": "Primary call to action; inverts to ink on hover.",
+      "html": "<a class=\"ds-btn-coral\" href=\"#\">Book A Free Call</a>",
+      "css": ".ds-btn-coral{display:inline-flex;padding:18px 30px;background:#f1502f;color:#16130f;border:2px solid #16130f;border-radius:0;font-weight:700;font-size:17px;letter-spacing:.01em;text-decoration:none;transition:background-color .15s,color .15s}.ds-btn-coral:hover{background:#16130f;color:#ededea}.ds-btn-coral:focus-visible{outline:3px solid #16130f;outline-offset:3px}"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Secondary action and the header button; turns coral on hover.",
+      "html": "<a class=\"ds-btn-ink\" href=\"#\">Contact Us</a>",
+      "css": ".ds-btn-ink{display:inline-flex;padding:18px 30px;background:#16130f;color:#ededea;border:2px solid #16130f;border-radius:0;font-weight:700;font-size:17px;text-decoration:none;transition:background-color .15s,color .15s}.ds-btn-ink:hover{background:#f1502f;color:#16130f}.ds-btn-ink:focus-visible{outline:3px solid #16130f;outline-offset:3px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Sticky newsprint bar with a 1px ink rule and underline-on-hover links.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-logo\">meeting••plug</span><span class=\"ds-nav-links\"><a href=\"#\">Services</a><a href=\"#\">Results</a><a href=\"#\">FAQ</a><a href=\"#\">About</a></span></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:#ededea;border-bottom:1px solid #16130f;color:#16130f}.ds-nav-logo{font-weight:800;font-size:20px}.ds-nav-links{display:flex;gap:36px;font-weight:600;font-size:16px}.ds-nav-links a{color:inherit;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:2px;text-underline-offset:6px}.ds-nav-links a:hover{text-decoration-color:#f1502f}"
+    },
+    {
+      "name": "Check Row",
+      "kind": "custom",
+      "description": "Ruled list row with a coral tick square.",
+      "html": "<div class=\"ds-row\"><span class=\"ds-tick\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"square\"><path d=\"M4.5 12.5 9.5 17.5 19.5 6.5\"/></svg></span><span>Completely done-for-you, start to finish</span></div>",
+      "css": ".ds-row{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-top:1px solid #16130f;border-bottom:1px solid #16130f;font-size:20px;font-weight:600;line-height:1.35;color:#16130f}.ds-tick{flex:none;width:32px;height:32px;background:#f1502f;color:#16130f;display:flex;align-items:center;justify-content:center}"
+    },
+    {
+      "name": "Proof Row",
+      "kind": "custom",
+      "description": "Signature: hairline, display numeral and label on the baseline.",
+      "html": "<div class=\"ds-proof\"><span class=\"ds-proof-num\">$180,000</span><span class=\"ds-proof-label\">ARR</span></div>",
+      "css": ".ds-proof{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0 20px;border-top:1px solid #16130f;border-bottom:1px solid #16130f;color:#16130f}.ds-proof-num{font-weight:800;font-size:72px;line-height:.92;letter-spacing:-.035em;font-variant-numeric:tabular-nums lining-nums;color:#f1502f;font-stretch:84%}.ds-proof-label{font-weight:700;font-size:17px}"
+    },
+    {
+      "name": "Pipeline Rail",
+      "kind": "custom",
+      "description": "Signature: coral rule over five ruled columns.",
+      "html": "<div class=\"ds-rail\"><div class=\"ds-rail-rule\"></div><div class=\"ds-rail-steps\"><div><b>1</b><span>Prospect</span></div><div><b>2</b><span>Cold Email</span></div><div><b>3</b><span>Reply</span></div></div></div>",
+      "css": ".ds-rail-rule{height:6px;background:#f1502f}.ds-rail-steps{display:grid;grid-template-columns:repeat(3,1fr);color:#16130f}.ds-rail-steps div{display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:150px;padding:20px 16px 8px;border-left:1px solid #16130f}.ds-rail-steps div:first-child{border-left:none;padding-left:0}.ds-rail-steps b{font-size:17px}.ds-rail-steps span{font-weight:800;font-size:30px;letter-spacing:-.035em;line-height:1}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Printed Results Sheet",
+    "overview": "The page is a single offset-printed sheet a sales leader could pin above a desk. The proof is the picture: campaign numerals set in a compressed heavy grotesk sit in ruled rows, and everything else is a table, a rail, or a list held by hairlines on a 12-column grid.",
+    "keyCharacteristics": [
+      "Rules, not boxes: structure is drawn with 1px and 4px ink lines, never cards.",
+      "One heavy compressed display voice; everything else is a plain humanist grotesk.",
+      "Coral (#f1502f) is the only signal color.",
+      "Square corners everywhere; zero elevation.",
+      "Motion is one grammar: hairlines that draw themselves in, with numerals counting up."
+    ],
+    "rules": [
+      {
+        "name": "The One Signal Rule",
+        "body": "Coral is the only color. If a second hue is needed, the design is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink-On-Coral Rule",
+        "body": "Text on a coral field is always ink. White on coral fails contrast and is never used.",
+        "section": "colors"
+      },
+      {
+        "name": "The Figures Rule",
+        "body": "Numerals are always tabular and lining, and always set in the display face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Surfaces never lift, blur, or glow. State changes are color swaps or an outline.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do draw structure with rules: 1px between rows, 4px opening each section.",
+      "Do set every campaign figure in the display face with tabular lining numerals.",
+      "Do keep coral as the only color and use ink for any text placed on it.",
+      "Do keep corners square and surfaces flat.",
+      "Do limit motion to hairlines drawing in and numerals counting up; show final states under reduced motion."
+    ],
+    "donts": [
+      "Don't add a gradient, shadow, glass, blur or rounded card.",
+      "Don't introduce a second hue or use coral for small text.",
+      "Don't put a label above a heading; section labels live in the side column.",
+      "Don't use white text on coral.",
+      "Don't set display type above 6rem."
+    ]
+  }
+}

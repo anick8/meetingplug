@@ -3,27 +3,26 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { FAQS } from "@/lib/content";
-import { EASE, Reveal, Stagger, StaggerItem } from "./motion";
+import { PlusIcon } from "./icons";
+import { EASE } from "./motion";
+import Section from "./Section";
 
 export default function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="faq" id="faq">
-      <div className="wrap">
-        <Reveal className="section-head">
-          <span className="kicker">FAQ</span>
-          <h2>Frequently asked questions</h2>
-        </Reveal>
-        <Stagger className="faq-list" gap={0.08}>
+    <Section id="faq" label="FAQ">
+      <div className="split">
+        <h2 className="h2 split-head">Frequently asked questions</h2>
+        <div className="rows split-body">
           {FAQS.map((f, i) => {
             const isOpen = open === i;
             return (
-              <StaggerItem className="faq-item" key={f.q}>
+              <div className="row row-faq" key={f.q}>
                 <button className="faq-q" aria-expanded={isOpen} aria-controls={`faq-a-${i}`} onClick={() => setOpen(isOpen ? null : i)}>
                   {f.q}
-                  <motion.span className="plus" aria-hidden="true" animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.25, ease: EASE }}>
-                    +
+                  <motion.span className="plus" animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.25, ease: EASE }}>
+                    <PlusIcon />
                   </motion.span>
                 </button>
                 <AnimatePresence initial={false}>
@@ -42,11 +41,11 @@ export default function Faq() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </StaggerItem>
+              </div>
             );
           })}
-        </Stagger>
+        </div>
       </div>
-    </section>
+    </Section>
   );
 }

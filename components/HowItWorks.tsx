@@ -1,26 +1,22 @@
 import { HOW_STEPS } from "@/lib/content";
-import { Reveal, Stagger, StaggerItem } from "./motion";
+import { DrawRule } from "./motion";
+import Section from "./Section";
 
 export default function HowItWorks() {
   return (
-    <section className="how">
-      <div className="wrap">
-        <Reveal className="section-head">
-          <span className="kicker">How It Works</span>
-          <h2>From cold prospect to signed client</h2>
-        </Reveal>
-        <Stagger className="how-grid" gap={0.14}>
-          <StaggerItem variant="draw" className="how-line" />
+    <Section label="How It Works">
+      <h2 className="h2 h2-wide">From cold prospect to signed client</h2>
+      <div className="rail">
+        <DrawRule className="rule-signal" duration={1.6} />
+        <ol className="rail-steps">
           {HOW_STEPS.map((label, i) => (
-            <div className="how-step" key={label}>
-              <StaggerItem variant="pop" className="circle">
-                {i + 1}
-              </StaggerItem>
-              <StaggerItem className="lbl">{label}</StaggerItem>
-            </div>
+            <li className="rail-step" key={label}>
+              <span className="rail-n">{i + 1}</span>
+              <span className="rail-label">{label}</span>
+            </li>
           ))}
-        </Stagger>
+        </ol>
       </div>
-    </section>
+    </Section>
   );
 }

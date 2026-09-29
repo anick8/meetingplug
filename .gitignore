@@ -39,3 +39,44 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright-cli (snapshots, console/network logs, screenshots)
+/.playwright-cli/
+/.playwright-mcp/
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
+
+# impeccable working files (keep .impeccable/design.json committed)
+/.impeccable/review/
+/.impeccable/questions/
+/.impeccable/mocks/
+/.impeccable/live/
+/.impeccable/config.local.json
+/.impeccable/decision-payload.json
+
+# claude code local state
+/.claude/settings.local.json
+/.claude/scheduled_tasks.lock
+
+# logs
+*.log
+logs/
+
+# editors / OS
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+Thumbs.db
+
+# env: keep the template committable
+!.env.example
+
+# misc caches
+.eslintcache
+.turbo/
+.cache/
+*.tgz
