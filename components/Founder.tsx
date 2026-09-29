@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { FOUNDER, LINKEDIN_URL, YOUTUBE_URL } from "@/lib/content";
 import { LinkedInIcon, YouTubeIcon } from "./icons";
+import { Reveal } from "./motion";
 
 export default function Founder() {
   return (
     <section className="founder" id="founder">
       <div className="wrap">
-        <div className="founder-grid">
-          <div className="founder-photo">
+        <Reveal className="founder-grid" y={32}>
+          <Reveal className="founder-photo" y={0} scale={0.8} spring delay={0.15}>
             <Image src={FOUNDER.photo} alt={`${FOUNDER.name}, ${FOUNDER.role} of MeetingPlug`} width={768} height={752} sizes="150px" />
-          </div>
-          <div>
+          </Reveal>
+          <Reveal x={32} y={0} delay={0.25}>
             <h3>
               {FOUNDER.name} — {FOUNDER.role}
             </h3>
@@ -25,8 +26,8 @@ export default function Founder() {
                 <YouTubeIcon />
               </a>
             </div>
-          </div>
-        </div>
+          </Reveal>
+        </Reveal>
       </div>
     </section>
   );

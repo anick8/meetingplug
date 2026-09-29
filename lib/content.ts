@@ -46,9 +46,9 @@ export const CASE_STUDIES = [
     width: 1857,
     height: 847,
     stats: [
-      { n: "994", l: "Sent" },
-      { n: "5", l: "Meetings Booked" },
-      { n: "$180,000", l: "ARR" },
+      { value: 994, l: "Sent" },
+      { value: 5, l: "Meetings Booked" },
+      { value: 180000, prefix: "$", l: "ARR" },
     ],
   },
   {
@@ -57,9 +57,9 @@ export const CASE_STUDIES = [
     width: 1893,
     height: 986,
     stats: [
-      { n: "996", l: "Sent" },
-      { n: "8", l: "Meetings Booked" },
-      { n: "$90,000", l: "CLV" },
+      { value: 996, l: "Sent" },
+      { value: 8, l: "Meetings Booked" },
+      { value: 90000, prefix: "$", l: "CLV" },
     ],
   },
 ];

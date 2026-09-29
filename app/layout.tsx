@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Source_Sans_3 } from "next/font/google";
+import { MotionProvider } from "@/components/motion";
+import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -22,7 +24,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-US" className={`${poppins.variable} ${sourceSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <MotionProvider>
+          <ScrollProgress />
+          {children}
+        </MotionProvider>
+      </body>
     </html>
   );
 }

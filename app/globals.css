@@ -67,6 +67,14 @@ header {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
+  transition: box-shadow 0.3s ease;
+}
+header.scrolled {
+  box-shadow: 0 6px 24px rgba(22, 19, 15, 0.08);
+}
+header.scrolled nav {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 nav {
   display: flex;
@@ -75,6 +83,7 @@ nav {
   padding: 18px 24px;
   max-width: 1160px;
   margin: 0 auto;
+  transition: padding 0.3s ease;
 }
 .logo {
   font-family: var(--heading);
@@ -115,7 +124,7 @@ nav {
   border-radius: 999px;
   font-weight: 700;
   font-size: 15px;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
   font-family: var(--body);
 }
@@ -126,7 +135,7 @@ nav {
 }
 .btn-coral:hover {
   background: var(--coral-dark);
-  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(241, 80, 47, 0.4);
 }
 .btn-dark {
   background: var(--ink);
@@ -196,6 +205,49 @@ nav {
   background: linear-gradient(125deg, var(--bg-a) 0%, var(--bg-c) 22%, var(--bg-b) 55%, var(--bg-b) 100%);
   padding: 90px 0 100px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-size: 130% 130%;
+  animation: heroShift 18s ease-in-out infinite alternate;
+}
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.55;
+}
+.blob-a {
+  width: 340px;
+  height: 340px;
+  top: -80px;
+  left: 6%;
+  background: var(--coral);
+  opacity: 0.28;
+}
+.blob-b {
+  width: 400px;
+  height: 400px;
+  bottom: -140px;
+  right: 4%;
+  background: #6bb6ee;
+}
+@keyframes heroShift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 45% 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none;
+  }
 }
 .eyebrow {
   font-family: var(--heading);
@@ -338,6 +390,12 @@ h1 {
   font-family: var(--heading);
   margin-bottom: 16px;
 }
+.service-card .icon {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card:hover .icon {
+  transform: rotate(-8deg) scale(1.1);
+}
 .service-card h3 {
   font-size: 20px;
   margin-bottom: 10px;
@@ -362,9 +420,28 @@ h1 {
     grid-template-columns: repeat(5, 1fr);
   }
 }
+.how-grid {
+  position: relative;
+}
+.how-line {
+  display: none;
+}
+@media (min-width: 760px) {
+  .how-line {
+    display: block;
+    position: absolute;
+    top: 27px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--coral), var(--orange));
+    border-radius: 2px;
+  }
+}
 .how-step {
   text-align: center;
   position: relative;
+  z-index: 1;
 }
 .how-step .circle {
   width: 56px;
@@ -411,6 +488,13 @@ h1 {
   width: 100%;
   height: auto;
   border-bottom: 1px solid var(--line);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.result-card:hover img {
+  transform: scale(1.03);
+}
+.result-card {
+  overflow: hidden;
 }
 .result-stats {
   display: flex;
@@ -463,16 +547,10 @@ h1 {
   color: var(--coral);
   font-size: 22px;
   font-weight: 700;
-  transition: transform 0.25s ease;
   flex: none;
 }
-.faq-item.open .plus {
-  transform: rotate(45deg);
-}
 .faq-a {
-  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
 }
 .faq-a p {
   color: var(--ink-soft);
@@ -619,4 +697,16 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+/* SCROLL PROGRESS */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--orange));
+  transform-origin: left center;
+  z-index: 100;
 }
