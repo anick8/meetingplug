@@ -1,30 +1,33 @@
 import Image from "next/image";
 import { FOUNDER, LINKEDIN_URL, YOUTUBE_URL } from "@/lib/content";
 import { LinkedInIcon, YouTubeIcon } from "./icons";
+import { Resolve } from "./motion";
 import Section from "./Section";
 
 export default function Founder() {
   return (
     <Section id="founder" label="About">
       <div className="split split-founder">
-        <div className="founder-photo">
+        <Resolve wipe y={0} className="founder-photo">
           <Image src={FOUNDER.photo} alt={`${FOUNDER.name}, ${FOUNDER.role} of MeetingPlug`} width={768} height={752} sizes="(min-width: 820px) 28vw, 100vw" />
-        </div>
+        </Resolve>
         <div className="founder-text">
-          <h3 className="h3">
+          <Resolve as="h3" className="h3" delay={0.15}>
             {FOUNDER.name} — {FOUNDER.role}
-          </h3>
-          {FOUNDER.bio.map((p) => (
-            <p key={p}>{p}</p>
+          </Resolve>
+          {FOUNDER.bio.map((p, i) => (
+            <Resolve as="p" key={p} delay={0.25 + i * 0.1}>
+              {p}
+            </Resolve>
           ))}
-          <div className="socials">
+          <Resolve className="socials" delay={0.45}>
             <a className="icon-link" href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <LinkedInIcon />
             </a>
             <a className="icon-link" href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <YouTubeIcon />
             </a>
-          </div>
+          </Resolve>
         </div>
       </div>
     </Section>

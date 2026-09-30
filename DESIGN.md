@@ -81,7 +81,7 @@ The system is calm and exact. It states results and lets them carry the claim, s
 - One heavy compressed display voice; everything else is a plain humanist grotesk.
 - Coral (#f1502f) is a signal used only for the primary call to action, the money figure, the tick squares and the closing field.
 - Square corners everywhere; zero elevation.
-- Motion is one grammar: hairlines that draw themselves in, with numerals counting up beside them.
+- Motion is one grammar: hairlines draw themselves in, content resolves into place (fade plus a 12px rise), and campaign numerals count up. Every section and list uses it.
 
 ## Colors
 
@@ -166,7 +166,7 @@ Every corner is square (0px): buttons, icon links, tick squares, image frames. I
 - **Do** set every campaign figure in the display face with tabular lining numerals.
 - **Do** keep coral as the only color and use ink for any text placed on it.
 - **Do** keep corners square and surfaces flat.
-- **Do** limit motion to hairlines drawing in and numerals counting up; show final states under reduced motion.
+- **Do** limit motion to hairlines drawing in, content resolving into place (0.55-0.6s, exponential ease-out) and numerals counting up; list rows draw their own rule before their content resolves; show final states under reduced motion.
 
 ### Don't:
 - **Don't** add a gradient, shadow, glass, blur or rounded card.
@@ -174,3 +174,4 @@ Every corner is square (0px): buttons, icon links, tick squares, image frames. I
 - **Don't** put a label above a heading; section labels live in the side column.
 - **Don't** use white text on coral.
 - **Don't** set display type above 6rem.
+- **Don't** add another motion vocabulary (parallax, staggered slides, scale-on-hover, blur, bounce); a CSS `transform` on an element (like the rotated side label) must not be overwritten by an animated one.

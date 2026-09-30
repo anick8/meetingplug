@@ -184,7 +184,7 @@
       "One heavy compressed display voice; everything else is a plain humanist grotesk.",
       "Coral (#f1502f) is the only signal color.",
       "Square corners everywhere; zero elevation.",
-      "Motion is one grammar: hairlines that draw themselves in, with numerals counting up."
+      "Motion is one grammar: hairlines draw themselves in, content resolves into place (fade plus a 12px rise), and campaign numerals count up. Every section and list uses it."
     ],
     "rules": [
       {
@@ -213,14 +213,15 @@
       "Do set every campaign figure in the display face with tabular lining numerals.",
       "Do keep coral as the only color and use ink for any text placed on it.",
       "Do keep corners square and surfaces flat.",
-      "Do limit motion to hairlines drawing in and numerals counting up; show final states under reduced motion."
+      "Do limit motion to hairlines drawing in, content resolving into place (0.55-0.6s, exponential ease-out) and numerals counting up; list rows draw their own rule before their content resolves; show final states under reduced motion."
     ],
     "donts": [
       "Don't add a gradient, shadow, glass, blur or rounded card.",
       "Don't introduce a second hue or use coral for small text.",
       "Don't put a label above a heading; section labels live in the side column.",
       "Don't use white text on coral.",
-      "Don't set display type above 6rem."
+      "Don't set display type above 6rem.",
+      "Don't add another motion vocabulary (parallax, staggered slides, scale-on-hover, blur, bounce); a CSS transform on an element (like the rotated side label) must not be overwritten by an animated one."
     ]
   }
 }

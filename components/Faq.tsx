@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { FAQS } from "@/lib/content";
 import { PlusIcon } from "./icons";
-import { EASE } from "./motion";
+import { EASE, Resolve, RuledItem, RuledList } from "./motion";
 import Section from "./Section";
 
 export default function Faq() {
@@ -13,12 +13,14 @@ export default function Faq() {
   return (
     <Section id="faq" label="FAQ">
       <div className="split">
-        <h2 className="h2 split-head">Frequently asked questions</h2>
-        <div className="rows split-body">
+        <Resolve as="h2" className="h2 split-head">
+          Frequently asked questions
+        </Resolve>
+        <RuledList className="split-body">
           {FAQS.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div className="row row-faq" key={f.q}>
+              <RuledItem className="row-faq" key={f.q}>
                 <button className="faq-q" aria-expanded={isOpen} aria-controls={`faq-a-${i}`} onClick={() => setOpen(isOpen ? null : i)}>
                   {f.q}
                   <motion.span className="plus" animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.25, ease: EASE }}>
@@ -41,10 +43,10 @@ export default function Faq() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </RuledItem>
             );
           })}
-        </div>
+        </RuledList>
       </div>
     </Section>
   );

@@ -203,7 +203,6 @@ h1 {
   top: 0;
   z-index: 50;
   background: var(--paper);
-  border-bottom: 1px solid var(--ink);
 }
 .nav {
   display: flex;
@@ -416,11 +415,11 @@ h1 {
 }
 
 /* Ruled lists */
-.rows {
-  border-bottom: 1px solid var(--ink);
+.row-item {
+  position: relative;
 }
-.row {
-  border-top: 1px solid var(--ink);
+.row-item:has(.row-svc) {
+  margin: 0 -16px;
 }
 .row-check {
   display: flex;
@@ -448,7 +447,6 @@ h1 {
 }
 .row-svc {
   padding: 32px 16px;
-  margin: 0 -16px;
   transition: background-color 0.15s ease;
 }
 .row-svc:hover {
@@ -524,7 +522,6 @@ h1 {
 /* Case studies */
 .cases {
   margin-top: 56px;
-  border-bottom: 1px solid var(--ink);
 }
 .case {
   display: grid;
@@ -532,7 +529,6 @@ h1 {
   column-gap: var(--col-gap);
   row-gap: 24px;
   padding: 40px 0;
-  border-top: 1px solid var(--ink);
 }
 .shot {
   grid-column: 1 / 8;
@@ -562,6 +558,10 @@ h1 {
 }
 .case-stat .num {
   font-size: clamp(44px, 4.6vw, 68px);
+}
+.case-stat dd {
+  display: block;
+  line-height: 0.92;
 }
 .case-stat dt {
   font-size: 16px;
@@ -663,7 +663,6 @@ h1 {
 .close {
   background: var(--coral);
   color: var(--ink);
-  border-top: 4px solid var(--ink);
 }
 .close-grid {
   display: grid;
@@ -698,10 +697,6 @@ h1 {
   font-weight: 800;
   font-size: 20px;
   margin-bottom: 16px;
-}
-.close .rows,
-.close .row {
-  border-color: var(--ink);
 }
 .close .tick {
   background: var(--ink);
@@ -773,10 +768,18 @@ h1 {
   display: inline-flex;
   margin-bottom: 0;
 }
-.footer-bottom {
+.footer-rule {
   margin-top: 48px;
+}
+.footer-bottom {
   padding-top: 20px;
-  border-top: 1px solid var(--ink);
   font-size: 14px;
   color: var(--ink-soft);
+}
+
+/* Motion: the plate wipe is a clip, not a transform, so switch it off for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .is-wipe {
+    clip-path: none !important;
+  }
 }
